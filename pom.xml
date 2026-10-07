@@ -48,6 +48,24 @@
                     <target>17</target>
                 </configuration>
             </plugin>
+            <!-- Copiar dependencias al compilar para el classpath del CLI -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/dependency</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- Plugin para Ejecutar Pruebas -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
